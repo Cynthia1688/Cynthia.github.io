@@ -1,0 +1,47 @@
+---
+title: "Data_Analysis"
+author: "Yangyang Chen"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+
+```{r setup, include=FALSE, message=FALSE, include = FALSE, warning = FALSE}
+library(flexdashboard)
+library(tidyverse)
+library(p8105.datasets)
+library(tidyverse)
+library(httr)
+library(jsonlite)
+library(plotly)
+library(stringi)
+```
+
+## _Data_Pre-processing_
+
+```{r data_cleaning}
+library(p8105.datasets)
+data(rest_inspec)
+rest_df = 
+  rest_inspec |> 
+  rename(borough = boro) |> 
+  drop_na() |> 
+  filter(borough != "Missing") |> 
+  mutate(
+      cuisine_description = str_replace(cuisine_description, "CafÃ©/", "Café/"),
+      dba = str_to_title(dba),
+      borough = str_to_title(borough)
+  ) |> 
+  separate(grade_date, into = c("year", "month", "day")) |>
+  mutate(month = month.abb[as.numeric(month)]) |> 
+  select(-c(day, record_date)) |> 
+  relocate(year, month, borough, everything())
+
+rest_df |> 
+  count(cuisine_description) |> 
+  filter(min_rank(desc(n)) < 6) 
+
+```
+**Data Description:**
+
+The `rest_inspec` dataset contains `r rest_inspec |> nrow()` observations and `r rest_inspec |> ncol()` variables, reflecting the NYC restaurants' performances from `r rest_df |> pull(year) |>  min()` to `r rest_df |> pull(year) |>  max()`.

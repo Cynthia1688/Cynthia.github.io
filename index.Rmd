@@ -1,0 +1,15 @@
+---
+title: "Cynthia's Website"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    theme: bootstrap
+---
+
+
+## _About ME!_
+
+The first time I built this website was on October 25th, 2023 - right after I survived in my first midterm exam at CU. I felt so exhausive cuz I performed like a shit on Probability... BUT! This won't affect my passion on coding. I was so excited so I nearly put everything interesting about myself into this website, hope you can enjoy it!!
+
+![](https://p6.itc.cn/images01/20220408/a2bb0c1781684178b636c146d85896a8.gif)

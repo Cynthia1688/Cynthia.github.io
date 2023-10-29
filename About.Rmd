@@ -1,0 +1,92 @@
+---
+title: "About ME!!"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    theme: bootstrap
+---
+
+
+## _Past Experience_
+
+#### DATA ANALYSIS EXPERIENCES
+
+**_Academy of Continuing Education_** | _Data Analyst Intern_ | UIC, Zhuhai, China	                                                             
+Sept 2020 – Jan 2021
+
+* Gathered 2K students' academic information by conducting SQL query.
+* Designed student employment database with ER diagrams and analyzed functional dependencies in MySQL Workbench, facilitating the release of the 2020 graduate employment report 1 month early.
+* Created four triggers to detect the graduate status; removed 2K graduates from the enrolled student database, optimizing 12% of database storage.
+
+
+**_Wantex Consultants Co., Ltd._** | _Assistant Data Analyst_ | Hong Kong, China           	
+Jul 2020
+
+* Evaluated users’ segmentation and built multiple linear regression and exponential smoothing models in R to predict potential product demands, and increased insurance yield by 15%. 
+
+#### ACADEMIC PROJECT EXPERIENCE
+
+**_RP - Bootstrap Sampling from the Location-Scale Student’s t-Distribution and Its Application_**	
+
+Jun 2022 – Dec 2022
+
+*	Conducted traditional Bootstrap sampling and the RP-Bootstrap sampling, using MATLAB, to compare the standard errors of the MLE.
+
+**_Parameters Estimations of the Logistic Distribution and its Application in Statistical Inference_** 	 
+
+Sept 2021 – Jan 2022
+
+*	Generated the standard logistic distribution and applied Pearson-Fisher Chi-Square test to MLE and chi-square estimations, to test goodness-of-fit.
+*	Simulated the performance of the statistic in controlling type I error rates for a given significant level α, using MATLAB, to find the optimal estimation method.
+
+**_Abnormal Signal Analysis of Rats EEG: Examining Seizure_** 	      
+
+Feb 2021 – Sept 2021
+
+*	Applied the data cleaning and analysis process using dplyr and tidyverse package, using R, to propose the typical epilepsy characteristics of rats.
+
+#### Contact ME!
+**E-mail:** yc4384@cumc.columbia.edu
+
+**[Github](https://github.com/Cynthia1688) Link** 
+
+**[Linkedln](https://www.linkedin.com/in/yangyang-cynthia-chen/)**
+
+## _Interests_
+
+### Drawing and Photographing
+
+Aegithalos glaucogularis is my favorite bird. I did a lot of research on it and hope someday I could have one as my friend.
+
+![](https://pic.netbian.com/uploads/allimg/170328/223403-1490711643172e.jpg)
+
+![](https://p5.toutiaoimg.com/origin/pgc-image/1da638b0398141378e7abf30bfc9bc3f?from=pc)
+
+![](https://alicdn-mpres.51vv.com/v_block/a5a8ce4b408a04e202e89b1e44bda06b.jpeg)
+
+
+### Reading and Writing
+
+My favorite books: 
+
+1. You Are the April of This World - By Huiyin Lin
+
+   Love story of writer Huiyin Lin and architect Sicheng Liang. 
+
+2. Ever Promised - By Hua Tong
+
+   Romantic stories of traditional Chinese gods.
+
+3. Lin Ching Selected Essays - By Qingxuan Lin
+
+   Essays and thoughts inspired by daily views and things.
+
+4. Beidai Riverside's Fantasy - By Zhimo Xu
+
+   It's a travel essay. The writer did not pay attention to the precise description of the scenery, but instead focused on the expression of his inner feelings by moving away from the scenery in front of him. The whole article has magnificent and colorful words, light and elegant words, and complex and changeable sentences. Through unique imagination and rich emotions, it expresses encouragement to young people. More importantly, it points out that young people cannot "emotionally change" just for the sake of temporary failure. "If the flash is not there", otherwise you can only fall into the darkness of emptiness and be unable to extricate yourself.
+   
+## _Craziest Thing I've DONE_
+
+Driving car without licenses at 110km/h speed and fortunately survived.
+

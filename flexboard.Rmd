@@ -1,0 +1,152 @@
+---
+title: "Plots"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+---
+
+```{r setup, include=FALSE, message=FALSE, include = FALSE, warning = FALSE}
+library(flexdashboard)
+library(tidyverse)
+library(p8105.datasets)
+library(plotly)
+```
+
+```{r data_cleaning, include=FALSE, message=FALSE, include = FALSE, warning = FALSE}
+data(rest_inspec)
+
+rest_df = 
+  rest_inspec |> 
+  rename(borough = boro) |> 
+  separate(grade_date, into = c("year", "month", "day")) |>
+  mutate(
+    cuisine_description = str_replace(cuisine_description, "CafÃ©/", "Café/"),
+    dba = str_to_title(dba),
+    borough = str_to_title(borough),
+  ) |>
+  select(year, borough, score, cuisine_description, grade, dba) |>
+  drop_na() |> 
+  filter(
+    borough == "Manhattan", 
+    cuisine_description == "American",
+    score %in% 0:25
+    )
+  
+#   drop_na() |> 
+#   filter(borough != "Missing") |> 
+#   mutate(
+#       cuisine_description = str_replace(cuisine_description, "CafÃ©/", "Café/"),
+#       dba = str_to_title(dba),
+#       borough = str_to_title(borough)
+#   ) |> 
+#   separate(grade_date, into = c("year", "month", "day")) |>
+#   mutate(month = month.abb[as.numeric(month)]) |> 
+#   select(-c(day, record_date)) |> 
+#   relocate(year, month, borough, everything())
+# 
+# rest_df |> 
+#   count(cuisine_description) |> 
+#   filter(min_rank(desc(n)) < 6) 
+
+```
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+## _Plotly boxplot_
+```{r}
+rest_df |> 
+  mutate(grade = fct_reorder(grade, score)) |> 
+  plot_ly(y = ~score, color = ~grade, type = "box", colors = "viridis")
+```
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+## _Plotly barchart_
+```{r}
+rest_df |> 
+  count(grade) |> 
+  mutate(grade = fct_reorder(grade, n)) |> 
+  plot_ly(x = ~grade, y = ~n, color = ~grade, type = "bar", colors = "viridis")
+```
+Column {data-width=350}
+-----------------------------------------------------------------------
+## _Plotly scatterplot_
+```{r}
+rest_df |> 
+  count(grade) |> 
+  mutate(grade = fct_reorder(grade, n)) |> 
+  plot_ly(
+    x = ~grade, y = ~n, type = "scatter", mode = "markers",
+    color = ~grade, alpha = 0.5
+  )
+```
+Column {data-width=350}
+-----------------------------------------------------------------------
+## _Plotly bubbleplot_
+```{r}
+rest_df |> 
+  count(grade) |> 
+  mutate(grade = fct_reorder(grade, n)) |> 
+  plot_ly(
+    x = ~grade, y = ~n, type = "scatter", mode = "markers",
+    size = ~n ,color = ~grade, alpha = 0.5
+  )
+```
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### _ggplotly_Histogram_
+
+```{r}
+hist_ggplot = 
+rest_df |>
+  filter(cuisine_description %in% c("American", "Café/Coffee/Tea", "Chinese", "Italian", "Pizza")) |>
+  ggplot(aes(x = score)) +
+  geom_histogram() +
+  facet_grid(borough ~ cuisine_description)
+
+ggplotly(hist_ggplot)
+```
+
+
+
+<!-- ### _Ridge Plot_ -->
+
+<!-- ```{r} -->
+<!-- ridge_ggplot =  -->
+<!-- rest_df |> -->
+<!--   filter( -->
+<!--     score < 10, -->
+<!--     cuisine_description == "Pizza", -->
+<!--     borough == "Manhattan", -->
+<!--     year == 2017 -->
+<!--     ) |> -->
+<!--   mutate(dba = fct_reorder(dba, score)) |> -->
+<!--   ggplot(aes(x = score, y = dba)) + -->
+<!--   geom_density_ridges() -->
+
+<!-- ggplotly(ridge_ggplot) -->
+<!-- ``` -->
+
+<!-- In 2017, Manhattan's Pizza Restaurants "99 Cent Fresh Pizza" and Domino's score had the lowest score, indicating their highest grade. -->
+
+<!-- ### _Scatter Plot_ -->
+
+<!-- ```{r}
+# scatter_ggplot = 
+# rest_df |>
+#   filter(
+#     cuisine_description == "Egyptian",
+#     borough == "Manhattan",
+#     ) |>
+#   ggplot(aes(x = score, y = year, color = dba)) +
+#   geom_point(alpha = .5) +
+#   facet_grid(. ~ dba)
+# 
+# ggplotly(scatter_ggplot)
+<!-- ```
+
+<!-- From above graph, we can observed that among Egyptian Restaurants in Manhattan, the score of `Casa La Femme` and `Zoe Cafe` became lower compared to previous years. Besides, restaurant `Horus Too` fluctuated around score 10, indicating it's comparably higher grade among those three Egyptian Restaurants. -->
+
+
