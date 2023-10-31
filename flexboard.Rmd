@@ -93,21 +93,21 @@ rest_df |>
     size = ~n ,color = ~grade, alpha = 0.5
   )
 ```
-Column {data-width=350}
------------------------------------------------------------------------
+<!-- Column {data-width=350} -->
+<!-- ----------------------------------------------------------------------- -->
 
-### _ggplotly_Histogram_
+<!-- ### _ggplotly_Histogram_ -->
 
-```{r}
-hist_ggplot = 
-rest_df |>
-  filter(cuisine_description %in% c("American", "Café/Coffee/Tea", "Chinese", "Italian", "Pizza")) |>
-  ggplot(aes(x = score)) +
-  geom_histogram() +
-  facet_grid(borough ~ cuisine_description)
+<!-- ```{r} -->
+<!-- hist_ggplot =  -->
+<!-- rest_df |> -->
+<!--   filter(cuisine_description %in% c("American", "Café/Coffee/Tea", "Chinese", "Italian", "Pizza")) |> -->
+<!--   ggplot(aes(x = score)) + -->
+<!--   geom_histogram() + -->
+<!--   facet_grid(borough ~ cuisine_description) -->
 
-ggplotly(hist_ggplot)
-```
+<!-- ggplotly(hist_ggplot) -->
+<!-- ``` -->
 
 
 
